@@ -9,9 +9,9 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>Clean Blog</h1>
+                        <h1>Unit Testers</h1>
                         <hr class="small">
-                        <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
+                        <span class="subheading">People Who Love Testing Every Unit!</span>
                     </div>
                 </div>
             </div>
@@ -24,13 +24,13 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <%published_posts.each {post ->%>
                     <div class="post-preview">
-                        <a href="${post.uri}">
+                        <a href="${post.permalink}">
                             <h2 class="post-title">
                                 ${post.title}
                             </h2>
                         </a>
                         ${post.body}
-                        <p class="post-meta">Posted by ${post.author} on ${post.date.format("dd MMMM yyyy")}</p>
+                        <p class="post-meta">Posted by ${post.author} on ${post.date.format("dd MMMM yyyy")} under <a href="<%if (content.rootpath) {%>${content.rootpath}<% } else { %><% }%>${config.categories_path}/${post.primary_category}">${post.primary_category}</a></p>
                     </div>
                     <hr>
                 <%}%>

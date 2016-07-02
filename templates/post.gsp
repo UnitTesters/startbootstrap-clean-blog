@@ -13,7 +13,8 @@
                         <% if(content.subtitle) { %>
                         <h2 class="subheading">${content.subtitle}</h2>
                         <% } %>
-                        <span class="meta">Posted by ${content.author} on ${content.date.format("dd MMMM yyyy")}</span>
+                        <span class="meta">Posted by ${content.author} on ${content.date.format("dd MMMM yyyy")} under <a href="<%if (content.rootpath) {%>${content.rootpath}<% } else { %><% }%>${config.categories_path}/${content.primary_category}">${content.primary_category}</a></span>
+                        
                     </div>
                 </div>
             </div>
@@ -24,6 +25,10 @@
     <article>
         <div class="container">
             <div class="row">
+            	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                 <span class="post-tags pull-right"><% if (content.tags) { %> <i class="fa fa-tags" aria-hidden="true"></i> Tags:  <% content.tags.each {tag -> %><a href="/tags/${tag}.html">${tag}</a> <% } } %> </span>
+                </div>
+            	
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     ${content.body}
                 </div>
@@ -32,5 +37,8 @@
     </article>
 
     <hr>
+    
+    <%include "disqus.gsp"%>
+    
 
 <%include "footer.gsp"%>

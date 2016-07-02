@@ -393,3 +393,21 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #0085a1;
 }
+.categories ul li{
+	list-style: none;	
+}
+
+.categories ul li:before {
+  content: '\f138';
+  font-family: 'FontAwesome';
+  float: left;
+  margin-left: -1.5em;
+}
+
+.show-on-hover:hover > ul.dropdown-menu {
+    display: block;    
+}
+
+.navbar-nav .open a, .dropdown-menu{
+	background-color:transparent !important;
+}
